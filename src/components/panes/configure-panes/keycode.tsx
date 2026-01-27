@@ -45,8 +45,8 @@ import {getNextKey} from 'src/utils/keyboard-rendering';
 import {useTranslation} from 'react-i18next';
 const KeycodeList = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, 64px);
-  grid-auto-rows: 64px;
+  grid-template-columns: repeat(auto-fill, 40px);
+  grid-auto-rows: 40px;
   justify-content: center;
   grid-gap: 10px;
 `;
@@ -56,12 +56,12 @@ const MenuContainer = styled.div`
 `;
 
 const Keycode = styled(Button)<{disabled: boolean}>`
-  width: 50px;
-  height: 50px;
-  line-height: 18px;
-  border-radius: 64px;
-  font-size: 14px;
-  border: 4px solid var(--border_color_icon);
+  width: 35px;
+  height: 35px;
+  line-height: 14px;
+  border-radius: 40px;
+  font-size: 12px;
+  border: 2px solid var(--border_color_icon);
   background: var(--bg_control);
   color: var(--color_label-highlighted);
   margin: 0;
@@ -81,8 +81,8 @@ const KeycodeContent = styled.div`
 `;
 
 const CustomKeycode = styled(Button)`
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   line-height: 18px;
   border-radius: 10px;
   font-size: 14px;

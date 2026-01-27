@@ -304,4 +304,16 @@ export default {
   S2_DEC: 0x5f0d,
   FN_MO13: 0x5f10,
   FN_MO23: 0x5f11,
+    //滚轮
+  DIAL_L:  0x7fb2,
+  DIAL_BUT: 0x7fb1,
+  DIAL_R: 0x7fb3,
+  DIAL_LC: 0x7fb4,
+  DIAL_RC: 0x7fb5,
+  //无线
+  BLE0: 0x7793,
+  BLE1: 0x7794,
+  BLE2: 0x7795,
+  RF: 0x7785,
+  USB: 0x7784
 };
