@@ -316,5 +316,14 @@
   "Right Spacebar 2 Key": "右空格键 2",
   "Right Spacebar 2 Key Switch Type": "右空格键 2 轴体类型",
   "Right Spacebar 2 Key Mode": "右空格键 2 模式",
-  "Main Cluster Switch Type": "主键区轴体类型"
+  "Main Cluster Switch Type": "主键区轴体类型",
+  "Enable Modifiers":"启用修饰键",
+  "Modifiers":"修饰键",
+  "Please enter your desired QMK keycode or hex code:":"请输入您所需的QMK键码或十六进制代码：",
+  "Hex code:":"十六进制：",
+  "dial":"滚轮",
+  "Commonly_Used": "其他功能按键",
+  "Rotate Counterclockwise":"逆时针旋转",
+  "Rotate Clockwise":"顺时针旋转",
+  "Press Encoder":"旋钮按压"
 }

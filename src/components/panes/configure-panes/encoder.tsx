@@ -18,6 +18,7 @@ import {
 } from 'src/store/devicesSlice';
 import {KeyboardAPI} from 'src/utils/keyboard-api';
 import {ErrorMessage} from 'src/components/styled';
+import {useTranslation} from 'react-i18next'
 
 const Encoder = styled(CenterPane)`
   height: 100%;
@@ -41,6 +42,7 @@ const renderEncoderError = () => {
 };
 
 export const Pane: FC = () => {
+  const {t} = useTranslation();
   const [cwValue, setCWValue] = useState<number>();
   const [ccwValue, setCCWValue] = useState<number>();
   const selectedKey = useAppSelector(getSelectedKey);
@@ -117,7 +119,7 @@ export const Pane: FC = () => {
       <Encoder>
         <Container>
           <ControlRow>
-            <Label>Rotate Counterclockwise</Label>
+            <Label>{t('Rotate Counterclockwise')}</Label>
             <Detail>
               <PelpiKeycodeInput
                 value={ccwValue}
@@ -127,7 +129,7 @@ export const Pane: FC = () => {
             </Detail>
           </ControlRow>
           <ControlRow>
-            <Label>Rotate Clockwise</Label>
+            <Label>{t('Rotate Clockwise')}</Label>
             <Detail>
               <PelpiKeycodeInput
                 value={cwValue}
@@ -138,7 +140,7 @@ export const Pane: FC = () => {
           </ControlRow>
           {canClick && (
             <ControlRow>
-              <Label>Press Encoder</Label>
+              <Label>{t('Press Encoder')}</Label>
               <Detail>
                 <PelpiKeycodeInput
                   value={val}
