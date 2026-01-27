@@ -43,6 +43,7 @@ import {
 } from 'src/store/settingsSlice';
 import {getNextKey} from 'src/utils/keyboard-rendering';
 import {useTranslation} from 'react-i18next';
+
 const KeycodeList = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, 40px);
@@ -170,6 +171,35 @@ export const KeycodePane: FC = () => {
   );
   const [mouseOverDesc, setMouseOverDesc] = useState<string | null>(null);
   const [showKeyTextInputModal, setShowKeyTextInputModal] = useState(false);
+
+  /**
+   * 新增逻辑：监听全局双击事件
+   * 用于实现点击上方键盘区域（红框）时触发 Any Key 弹窗
+   */
+  useEffect(() => {
+    const handleGlobalDoubleClick = (e: MouseEvent) => {
+      // 1. 必须有选中的按键
+      if (selectedKey === null) return;
+
+      // 2. 获取事件目标
+      const target = e.target as HTMLElement;
+      
+      // 3. 这里的逻辑是：如果点击不发生在底部的配置菜单区域内，
+      // 且不发生在普通的输入框或按钮上（防止误触），则认为是点击了上方键盘。
+      const menuContainer = document.getElementById('keycode-pane-container');
+      const isInsideMenu = menuContainer && menuContainer.contains(target);
+      
+      // 排除掉点击底部菜单自身的情况，只响应外部区域（即上方键盘区域）
+      if (!isInsideMenu) {
+        setShowKeyTextInputModal(true);
+      }
+    };
+
+    window.addEventListener('dblclick', handleGlobalDoubleClick);
+    return () => {
+      window.removeEventListener('dblclick', handleGlobalDoubleClick);
+    };
+  }, [selectedKey]);
 
   const getEnabledMenus = (): IKeycodeMenu[] => {
     if (isVIADefinitionV3(selectedDefinition)) {
@@ -363,7 +393,10 @@ export const KeycodePane: FC = () => {
   return (
     <>
       <SubmenuOverflowCell>{renderCategories()}</SubmenuOverflowCell>
-      <OverflowCell>
+      {/* 添加 id="keycode-pane-container" 以便我们在双击事件中区分
+         点击的是菜单内部（不触发）还是外部键盘区域（触发） 
+      */}
+      <OverflowCell id="keycode-pane-container">
         <KeycodeContainer>
           {renderSelectedCategory(selectedCategoryKeycodes, selectedCategory)}
         </KeycodeContainer>
