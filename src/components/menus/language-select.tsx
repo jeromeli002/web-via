@@ -6,9 +6,13 @@ import styled from 'styled-components';
 import {useTranslation} from 'react-i18next';
 
 const Container = styled.div`
-  position: absolute;
-  right: 200px;
-  font-size: 18px;
+  // position: absolute;
+  // right: 200px;
+  // font-size: 18px;
+  position: relative;
+  right: 0em;
+  display: flex;
+  gap: 1em;
 `;
 
 const LanguageList = styled.ul<{$show: boolean}>`

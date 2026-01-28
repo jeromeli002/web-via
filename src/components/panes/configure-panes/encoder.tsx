@@ -35,8 +35,7 @@ const Container = styled.div`
 const renderEncoderError = () => {
   return (
     <ErrorMessage>
-      Your current firmware does not support rotary encoders. Install the latest
-      firmware for your device.
+      t('Your current firmware does not support rotary encoders. Install the latest firmware for your device.')
     </ErrorMessage>
   );
 };

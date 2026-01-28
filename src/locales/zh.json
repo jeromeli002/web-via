@@ -83,6 +83,7 @@
   "Authorize New": "加载新的键盘",
   "Check Key": "测试按键",
   "Your current firmware does not support macros. Install the latest firmware for your device.": "当前固件不支持宏，请更新到最新的固件.",
+  "Your current firmware does not support rotary encoders. Install the latest firmware for your device.": "当前固件不支持旋钮，请更新到最新的固件",
   "Layer": "层",
   "Clear": "清除",
   "Download": "下载",
@@ -322,8 +323,10 @@
   "Please enter your desired QMK keycode or hex code:":"请输入您所需的QMK键码或十六进制代码：",
   "Hex code:":"十六进制：",
   "dial":"滚轮",
-  "Commonly_Used": "其他功能按键",
+  "Commonly_Used": "功能键",
   "Rotate Counterclockwise":"逆时针旋转",
   "Rotate Clockwise":"顺时针旋转",
-  "Press Encoder":"旋钮按压"
+  "Press Encoder":"旋钮按压",
+  "kbtest":"键盘测试",
+  "Apply for support":"申请支持"
 }

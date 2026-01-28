@@ -131,12 +131,12 @@ export const Detail = styled.span`
 export const Row = styled.div<{$selected: boolean}>`
   cursor: pointer;
   white-space: nowrap;
-  margin-bottom: 15px;
-  font-size: 20px;
-  line-height: 20px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 14px;
   text-transform: uppercase;
   color: ${(props) => getIconColor(props.$selected).style.color};
-  border-left: 2px solid transparent;
+  border-left: 1px solid transparent;
 
   svg {
     height: 20px;
