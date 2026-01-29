@@ -445,7 +445,7 @@ export const Keycap: React.FC<ThreeFiberKeycapProps> = React.memo((props) => {
   return (
     <>
       <animated.mesh
-        {...props}
+        {...(props as any)}
         ref={ref}
         position-z={z}
         rotation-z={rotateZ}
