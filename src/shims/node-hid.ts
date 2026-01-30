@@ -170,9 +170,26 @@ const ExtendedHID = {
     }
 
     async write(arr: number[]) {
+      const targetCollection = this._hidDevice?._device.collections?.find(
+        (collection) =>
+          collection.usage === 0x61 &&
+          collection.usagePage === 0xff60,
+      );   
+      console.log("find-",targetCollection);
+      let find_reportid: number = 0;
+      if (targetCollection) {
+        const report =
+          targetCollection.outputReports?.[0] ??
+          targetCollection.inputReports?.[0];
+
+        if (report && typeof report.reportId === 'number') {
+          find_reportid = report.reportId;
+        }
+      }
+
       await this.openPromise;
       const data = new Uint8Array(arr.slice(1));
-      await this._hidDevice?._device.sendReport(0, data);
+      await this._hidDevice?._device.sendReport(find_reportid, data);
     }
   },
 };
